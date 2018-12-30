@@ -17,20 +17,20 @@ class check implements exam{
 	
 	int sno;
 	String sname;
-	String clas;
+	String class;
 	float attendance;
 	float perc;
 	
 	public check(int s, String name, String c, float a) {
 		sno=s;
 		sname=name;
-		clas=c;
+		class=c;
 		attendance=a;
 	}
 	
 	@Override
 	public String getValue() {
-		return ("\nStudent Number: " +sno +"\nStudent Name: " +sname +"\nClass: " +clas +"\nAttendace: " +attendance + "\nAttendace Percentage: "+perc );
+		return ("\nStudent Number: " +sno +"\nStudent Name: " +sname +"\nClass: " +class +"\nAttendace: " +attendance + "\nAttendace Percentage: "+perc );
 	}
 
 	@Override

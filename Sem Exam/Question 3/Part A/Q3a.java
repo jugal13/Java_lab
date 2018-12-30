@@ -8,16 +8,6 @@ class NameException extends Exception {
 class AgeException extends Exception {
 }
 
-class Emp_Details
-{
-	int age;
-	String name;
-	Emp_Details(int a,String n)
-	{
-		age=a;
-		name=n;
-	}
-}
 public class Q3a {
 	@SuppressWarnings({ "resource", "unused" })
 	public static void main(String args[]) 
@@ -26,8 +16,9 @@ public class Q3a {
 		boolean ex = false;
 		System.out.println("Enter your age: ");  
 		int age = sc.nextInt();
+		sc.nextLine();
 		System.out.println("Enter your name: ");  
-		String name = sc.next();
+		String name = sc.nextLine();
 		try {
 			if(age>50) {
 				throw new AgeException();
