@@ -3,9 +3,7 @@ import java.sql.*;
 import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
-/**
- * Servlet implementation class Police
- */
+
 @WebServlet("/Police")
 public class Police extends HttpServlet {
 	private static final long serialVersionUID = 1L;     
@@ -23,39 +21,30 @@ public class Police extends HttpServlet {
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb", "root", "") ;
 			Statement st = con.createStatement();
-			ResultSet rs = st.executeQuery("select area,phone from police ");
-			int n  = Integer.parseInt(request.getParameter("n"));
+			String sql="";
+			boolean flag=true;
+			int n = Integer.parseInt(request.getParameter("n"));
 			String val = request.getParameter("ap");
-			boolean c = false ;
 			switch (n) { 
-				case 1 :
-						while(rs.next()) {
-							
-							if(rs.getString("area").equals(val)) {
-								out.println("Area " +val +" Phone " + rs.getString("phone"));
-								c = true;
-								break; 
-							}    
-						}   
+				case 1:	
+						sql="select area,phone from police where area="+val;
 						break;
 
 				case 2:
-						while(rs.next()) {
-							
-							if(rs.getString("phone").equals(val)) {
-								out.println("Area " +val +" Phone " + rs.getString("phone"));
-								c = true;
-								break;
-							}			
-						}
+						sql="select area,phone from police where phone="+val;
 						break;
 
 				default:
+						flag=false;
 						out.println("Information does not exist");
 			}
-
-			if(!c)
-				out.println("Information does not exist");
+			if(flag) {
+				ResultSet rs = st.executeQuery(sql);
+				while (rs.next()) {
+					out.println("Area: "+rs.getString("area"));
+					out.println("Area: "+rs.getString("phone"));
+				}
+			}
 		}
 		catch(Exception e) {
 			e.printStackTrace();
