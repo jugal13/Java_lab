@@ -22,18 +22,20 @@ public class Q6a {
 			if (age>25) {
 				throw new AgeOutOfRangeException();
 			}
+			else {
+				try {
+					if (cgpa<8) {
+						throw new LowCgpaException();
+					}	
+				}
+				catch(LowCgpaException e) {
+					System.out.println("Low Cgpa Exception");
+					flag = false;
+				}
+			}
 		}
 		catch(AgeOutOfRangeException e) {
 			System.out.println("Age Out Of Range Exception");
-			flag = false;
-		}
-		try {
-			if (cgpa<8) {
-				throw new LowCgpaException();
-			}	
-		}
-		catch(LowCgpaException e) {
-			System.out.println("Low Cgpa Exception");
 			flag = false;
 		}
 		finally {
