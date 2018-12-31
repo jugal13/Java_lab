@@ -23,8 +23,7 @@ public class Q1b {
 			st.close();
 			con.close();
 		}
-		catch (Exception e)
-		{
+		catch (Exception e) {
 			e.printStackTrace();
 		}
 	}

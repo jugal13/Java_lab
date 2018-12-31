@@ -12,12 +12,11 @@ public class Initials extends HttpServlet {
 		super(); 
 	}
 	
-	public String initials(String name){
+	public String initials(String name) {
 		String in = Character.toString(name.charAt(0));
 		for (int i = 1; i < name.length(); i++) 
 			if (name.charAt(i) == ' ')
 				in+=name.charAt(i + 1); 
-
 		return in.toUpperCase();
 	}
 	

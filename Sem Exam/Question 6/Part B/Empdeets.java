@@ -43,7 +43,7 @@ public class Empdeets extends HttpServlet {
 				id =rs.getInt("empid");
 				add =rs.getString("address");
 				dob =rs.getString("date_of_birth");
-				out.println("<tr> <th> "+ name +" </th> <th> "+id +" </th><th> "+add+" </th> <th> "+dob+" </th></tr> ");
+				out.println("<tr> <td> "+ name +" </td> <td> "+id +" </td><td> "+add+" </td> <td> "+dob+" </td></tr> ");
 			}
 			out.println("</table>");
 		}
