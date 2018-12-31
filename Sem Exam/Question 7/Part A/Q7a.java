@@ -40,11 +40,11 @@ class Rank extends Record {
 	
 	void highest()
 	{
-		int max=Integer.MAX_VALUE;
-		for(int i=0;i<10;i++) {
-			if(max>=rank[i]) {
-				index =i;
-				max=rank[i];
+		int max = Integer.MAX_VALUE;
+		for(int i = 0; i < 10; i++) {
+			if(max >= rank[i]) {
+				index = i;
+				max = rank[i];
 			}
 		}
 	}

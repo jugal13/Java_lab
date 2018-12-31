@@ -21,9 +21,7 @@ public class Empdeets extends HttpServlet {
 		String add = request.getParameter("add");
 		String dob = request.getParameter("dob");
 		
-		try
-		{
-
+		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb", "root","");
 			PreparedStatement ps =  conn.prepareStatement("insert into Employee values(?,?,?,?)");

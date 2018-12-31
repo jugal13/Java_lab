@@ -64,10 +64,8 @@ class thread2 extends Thread
 		p=m;
 		this.start();
 	}
-	public void run()
-	{
-		while(true)
-		{
+	public void run() {
+		while(true) {
 			p.eat();
 			try {
 				sleep(1000);

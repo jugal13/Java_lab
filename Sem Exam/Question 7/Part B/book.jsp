@@ -8,7 +8,7 @@
 </head>
 <body>
 	<%@ page import="java.sql.*" %>
-	<%@ page import = "javax.servlet.RequestDispatcher" %>
+	<%@ page import="javax.servlet.RequestDispatcher" %>
 	<%
 		int no = Integer.parseInt(request.getParameter("bno"));
 		String title = request.getParameter("title");
@@ -18,8 +18,8 @@
 
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb","root","");
-			PreparedStatement ps = conn.prepareStatement("insert into books values(?,?,?,?,?)");
+			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb","root","");
+			PreparedStatement ps = con.prepareStatement("insert into books values(?,?,?,?,?)");
 			ps.setInt(1,no);
 			ps.setString(2,title);
 			ps.setString(3,author);
