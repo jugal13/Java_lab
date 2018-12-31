@@ -28,8 +28,7 @@ public class Q14b {
 			}
 			rs.updateDouble("cgpa", 9.4);
 			rs.updateRow();
-			String last = "select * from student";
-			rs = st.executeQuery(last);
+			rs = st.executeQuery("select * from student");
 			System.out.println("Students cgpa on updating John's");
 			while (rs.next()) {
 				id = rs.getInt("id");

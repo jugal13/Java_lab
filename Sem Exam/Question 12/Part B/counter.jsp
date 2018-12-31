@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%@ page import = "java.io.*,java.util.*" %>
+	<%@ page import="java.io.*,java.util.*" %>
 	<%
 		Integer hitsCount = (Integer)application.getAttribute("hitCounter"); 
 		if( hitsCount == null || hitsCount == 0 ) {

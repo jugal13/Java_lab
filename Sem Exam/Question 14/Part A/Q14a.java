@@ -38,11 +38,10 @@ public class Q14a extends Applet implements MouseMotionListener,MouseListener
 	}
 
 	@Override
-	public void mouseReleased(MouseEvent e) {
+	public void mousePressed(MouseEvent e) {
 		startx=e.getX();
 		starty=e.getY();
 		showStatus("mouse pressed");
-
 	}
 
 	public void paint(Graphics g) {	
@@ -52,16 +51,20 @@ public class Q14a extends Applet implements MouseMotionListener,MouseListener
 	@Override
 	public void mouseMoved(MouseEvent e) {
 	}
+	
 	@Override
 	public void mouseClicked(MouseEvent e) {
 	}
+
 	@Override
 	public void mouseEntered(MouseEvent e) {
 	}
+
 	@Override
 	public void mouseExited(MouseEvent e) {
 	}
+
 	@Override
-	public void mousePressed(MouseEvent e) {
+	public void mouseReleased(MouseEvent e) {
 	}
 }
