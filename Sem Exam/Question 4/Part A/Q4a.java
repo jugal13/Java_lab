@@ -3,8 +3,7 @@ import java.awt.*;
 import java.awt.event.*;
 
 @SuppressWarnings("serial")
-public class Q4a extends Applet implements KeyListener
-{
+public class Q4a extends Applet implements KeyListener {
 
 	TextField t = new TextField();
 	Label enter = new Label("Enter text:");

@@ -7,13 +7,26 @@ class NameException extends Exception {
 @SuppressWarnings("serial")
 class AgeException extends Exception {
 }
+class Employee {
+	int age;
+	String name;
 
+	Employee(int age,String name) {
+		this.age=age;
+		this.name=name;
+	}
+
+	public String toString() {
+		return ("Name: "+name+"\nAge: "+age);
+	}
+}
 public class Q3a {
 	@SuppressWarnings({ "resource", "unused" })
 	public static void main(String args[]) 
 	{
 		Scanner sc = new Scanner(System.in);
 		boolean ex = false;
+		boolean flag=false;
 		System.out.println("Enter your age: ");  
 		int age = sc.nextInt();
 		sc.nextLine();
@@ -27,6 +40,7 @@ public class Q3a {
 		}
 		catch(AgeException e) {
 			System.out.println("Age Exception");
+			flag = true;
 		}
 		try {
 			int nm = Integer.parseInt(name);
@@ -40,6 +54,10 @@ public class Q3a {
 		}
 		catch(Exception e) {
 			System.out.println("Name is valid");
+		}
+		if(!flag && !ex) {
+			Employee e = new Employee(age,name);
+			System.out.println(e);
 		}
 	}
 }

@@ -4,8 +4,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 
-public class Q14a extends Applet implements MouseMotionListener,MouseListener
-{
+public class Q14a extends Applet implements MouseMotionListener,MouseListener {
 
 	private static final long serialVersionUID = 1L;
 
@@ -51,7 +50,7 @@ public class Q14a extends Applet implements MouseMotionListener,MouseListener
 	@Override
 	public void mouseMoved(MouseEvent e) {
 	}
-	
+
 	@Override
 	public void mouseClicked(MouseEvent e) {
 	}
