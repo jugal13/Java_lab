@@ -14,6 +14,7 @@ public class Q9b {
 		Statement s;
 		PreparedStatement ps;
 		ResultSet rs;
+		SavePoint sp;
 		
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -47,10 +48,11 @@ public class Q9b {
 						System.out.print("please enter your id: ");
 						id=in.nextInt();
 						while(inner) {
-							System.out.println("1.withdraw 2.deposit 3.display details 4.rollback 5. commit & display 6.main menu");
+							System.out.println("1.withdraw 2.deposit 3.display details 4.main menu");
 							int i=in.nextInt();
 							switch(i) {
 								case 1:
+									sp = con.setSavePoint("sp");
 									System.out.print("please enter amount for withdrawal: ");
 									amt=in.nextInt();
 									q="select * from bank where id="+id;				
@@ -64,6 +66,10 @@ public class Q9b {
 									System.out.println(q);							
 									s.executeUpdate(q);							
 									System.out.println("balance deducted!");
+									if (balance < 0)
+										con.rollback(sp);
+									con.releaseSavePoint(sp);
+									con.commit();
 									break;
 						
 								case 2:
@@ -77,6 +83,7 @@ public class Q9b {
 									q="update bank set bal="+bal+" where id="+id;
 									s.executeUpdate(q);
 									System.out.println("balance added!");
+									con.commit();
 									break;
 						
 								case 3:
@@ -87,30 +94,8 @@ public class Q9b {
 									System.out.print("name: "+rs.getString(2));
 									System.out.println("bal: "+rs.getInt(3));
 									break;
-						
-								case 4:
-									System.out.println("rollback because of failure!");
-									con.rollback();
-									q="select * from bank where id="+id;
-									rs=s.executeQuery(q);
-									rs.next();
-									System.out.print("id "+rs.getInt(1));
-									System.out.print("name: "+rs.getString(2));
-									System.out.println("bal: "+rs.getInt(3));
-									break;
-						
-								case 5:
-									System.out.println("commiting successfully!");
-									con.commit();							
-									q="select * from bank where id="+id;							
-									rs=s.executeQuery(q);							
-									rs.next();
-									System.out.print("id: "+rs.getInt(1));					
-									System.out.print("name: "+rs.getString(2));			
-									System.out.println("bal: "+rs.getInt(3));
-									break;
 
-								case 6:
+								case 4:
 									inner=false;
 									break;
 							}	
