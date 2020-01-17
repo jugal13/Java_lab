@@ -1,5 +1,12 @@
 import java.util.*;
 
+interface DataStructure {
+  public void push(int);
+  public int pop();
+  public boolean isempty();
+  public boolean isfull();
+}
+
 class Stack implements DataStructure {
   int array[];
   int Stacktop;
